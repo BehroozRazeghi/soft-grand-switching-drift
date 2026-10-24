@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use material from this repository, please cite the paper below."
+title: "Soft GRAND under Channel Switching and Drift"
+type: software
+authors:
+  - family-names: "Razeghi"
+    given-names: "Behrooz"
+    orcid: "https://orcid.org/0000-0001-9568-4166"
+repository-code: "https://github.com/BehroozRazeghi/soft-grand-switching-drift"
+url: "https://arxiv.org/abs/2608.22685"
+license: "BSD-3-Clause"
+keywords:
+  - GRAND
+  - soft decoding
+  - channel switching
+  - channel tracking
+  - pilot estimation
+  - mismatched decoding
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Razeghi"
+      given-names: "Behrooz"
+      orcid: "https://orcid.org/0000-0001-9568-4166"
+  title: "Soft GRAND under Channel Switching and Drift"
+  year: 2026
+  url: "https://arxiv.org/abs/2608.22685"

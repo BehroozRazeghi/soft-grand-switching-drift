@@ -1,0 +1,6 @@
+seed=2026081912
+rng_scheme=SeedSequence([seed,param_index,m,rep])
+reps=64
+C_est_calibrated_upper95=3.5988339113251828
+calibration_grid_points=50
+boundary_hit_fraction_all_fits=0.57468750000000002
