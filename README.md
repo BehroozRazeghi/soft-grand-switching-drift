@@ -56,7 +56,7 @@ The two channel states have generalized-Gaussian parameters
 | 1 | 1.05 | 0.75 |
 | 2 | 1.95 | 1.30 |
 
-The initial state is known and fixed. For each exact number of switches $S\in\{0,1,2,3\}$, the experiment evaluates every state path starting in that state: respectively **1, 9, 36, and 84 paths**. Each path is evaluated using 64 sampled channel observations.
+The initial state is known and fixed. For each exact number of switches $S\in\lbrace0,1,2,3\rbrace$, the experiment evaluates every state path starting in that state: respectively **1, 9, 36, and 84 paths**. Each path is evaluated using 64 sampled channel observations.
 
 Three posterior orderings are compared: the matched path-conditioned ordering (oracle), the uniform mixture over paths with **at most** $S$ switches, and a static ordering that retains the initial channel state. The plotted quantity is the excess ensemble-average GRANDAB error relative to the oracle, summarized across paths with exactly $S$ switches.
 
@@ -69,7 +69,7 @@ Files: `experiments/exp_switching_channel.py`, `data/switching_channel.csv`, `da
 The constrained maximum-likelihood estimator is evaluated at five parameter points and ten pilot sample sizes,
 
 $$
-m\in\{20,25,30,40,50,60,75,100,120,150\},
+m\in\lbrace20,25,30,40,50,60,75,100,120,150\rbrace,
 $$
 
 with 64 independent repetitions per setting. The reported calibration value,
@@ -86,10 +86,10 @@ Files: `experiments/exp_pilot_mle_calibration.py`, `data/pilot_mle_calibration.c
 
 ### 3. Refresh period and parameter tracking
 
-The tracking study uses $B=120$ data blocks, $n=10$, and deterministic parameter paths with periods $T\in\{120,80,60,40,30\}$. The tested refresh intervals are
+The tracking study uses $B=120$ data blocks, $n=10$, and deterministic parameter paths with periods $T\in\lbrace120,80,60,40,30\rbrace$. The tested refresh intervals are
 
 $$
-q\in\{4,5,6,8,10,12,15,20,24,30\}.
+q\in\lbrace4,5,6,8,10,12,15,20,24,30\rbrace.
 $$
 
 Every $q$ divides $B$. The pilot-to-data ratio is fixed at $\phi=m/(nq)=0.5$, so $m=5q$ pilots are collected at each refresh, corresponding to one pilot symbol per two data symbols. Each setting uses 64 repetitions. The empirical grid minimizer is assessed with 5,000 bootstrap resamples.
@@ -108,7 +108,7 @@ Files: `experiments/exp_refresh_scaling.py`, `data/refresh_scaling.csv`, `data/r
 
 ### 4. Pilot-tracked decoding
 
-For the drift periods $T\in\{120,40\}$, the experiment compares the matched current-parameter ordering, the periodically updated pilot-based ordering, and a static ordering based on the initial parameter. It uses the same $B$, $n$, $q$ grid, $\phi$, $R$, and $\gamma$ as above, with 64 paired repetitions. Within each repetition, the policies are evaluated on the same sampled data observations; pilot samples differ across refresh intervals.
+For the drift periods $T\in\lbrace120,40\rbrace$, the experiment compares the matched current-parameter ordering, the periodically updated pilot-based ordering, and a static ordering based on the initial parameter. It uses the same $B$, $n$, $q$ grid, $\phi$, $R$, and $\gamma$ as above, with 64 paired repetitions. Within each repetition, the policies are evaluated on the same sampled data observations; pilot samples differ across refresh intervals.
 
 The reported decoding quantity is excess ensemble-average GRANDAB error relative to matched ordering. The tracking-bound minimizer is shown for comparison, but is **not** claimed to minimize decoding error. The manuscript reports empirical decoding-error minima at $q=20$ for $T=120$ and $q=8$ for $T=40$ on the tested grid.
 
@@ -116,7 +116,7 @@ Files: `experiments/exp_pilot_drift.py`, `data/pilot_drift.csv`, and `data/pilot
 
 ### 5. Blocklength check
 
-A supplementary calculation considers $n\in\{8,10,12\}$ for two selected period–refresh pairs, $(T,q)=(120,20)$ and $(40,8)$, using eight repetitions. This is a small finite-block comparison and does not constitute an empirical asymptotic study.
+A supplementary calculation considers $n\in\lbrace8,10,12\rbrace$ for two selected period–refresh pairs, $(T,q)=(120,20)$ and $(40,8)$, using eight repetitions. This is a small finite-block comparison and does not constitute an empirical asymptotic study.
 
 Files: `experiments/exp_blocklength_robustness.py` and `data/blocklength_robustness.csv`.
 
