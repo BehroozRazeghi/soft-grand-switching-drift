@@ -15,10 +15,10 @@ The paper examines this mismatch in three parts:
 
 1. **Finite-block reliability.** For matched posterior $p$, query-ordering posterior $Q$, and true correction $E$ given observation $r$, the query rank satisfies
 
-    ```math
+   $$
    \log_2 G_Q(E\mid r)\leq -\log_2 p(E\mid r)
    +\left[\log_2\frac{p(E\mid r)}{Q(E\mid r)}\right]^+.
-   ```
+   $$
 
    The rank bound is combined with finite-population collision probabilities to analyze GRAND with abandonment (GRANDAB) for a random-subset code ensemble.
 
