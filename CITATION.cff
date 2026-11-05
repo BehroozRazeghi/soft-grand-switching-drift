@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use material from this repository, please cite the paper below."
+message: "If you use material from this repository, please cite the journal article in preferred-citation."
 title: "Soft GRAND under Channel Switching and Drift"
 type: software
 authors:
@@ -23,5 +23,7 @@ preferred-citation:
       given-names: "Behrooz"
       orcid: "https://orcid.org/0000-0001-9568-4166"
   title: "Soft GRAND under Channel Switching and Drift"
+  journal: "IEEE Communications Letters"
   year: 2026
-  url: "https://arxiv.org/abs/2608.22685"
+  doi: "10.1109/LCOMM.2026.3749996"
+  url: "https://ieeexplore.ieee.org/document/11771020"

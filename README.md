@@ -1,215 +1,92 @@
-# Soft GRAND under Channel Switching and Drift
-
-Code and numerical results for **Soft GRAND under Channel Switching and Drift**.
-
-**Paper:** [arXiv:2608.22685](https://arxiv.org/abs/2608.22685)
-
-The paper studies posterior mismatch in soft GRAND when the channel switches within a block or drifts across blocks. The numerical experiments use BPSK with generalized-Gaussian noise and evaluate switching-mixture ordering and periodic pilot refresh.
-
-## Source-code status
-
-The GRAND-based decoding implementation used in the experiments is not distributed in this repository because the applicability of third-party patent rights to this implementation remains unresolved.
-
-The implementation was developed independently and does not copy, modify, translate, or incorporate source code from GRAND-MATLAB, SOGRAND-C, or other existing GRAND codebases.
-
-The experiment scripts are included to record the numerical procedures and parameter settings used in the paper. They depend on source modules that are not distributed here and therefore cannot be executed from this repository alone. The archived numerical data, analysis scripts, and figure-generation script are public.
-
-## Repository structure
-
-```text
-analysis/       analysis of archived numerical results
-data/           numerical results used in the paper
-experiments/    experiment scripts and parameter settings
-figures/        manuscript figures
-scripts/        figure generation from archived data
-src/            source-code availability notice
-```
-
-## Environment
-
-Python 3.10 or later is recommended. The public analysis and plotting scripts use NumPy, SciPy, and Matplotlib.
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
-
-The versions in `requirements.txt` are the versions used to verify this public release.
-
-## Numerical experiments
-
-### Channel switching
-
-The switching experiment uses two generalized-Gaussian channel states,
-
-```text
-(beta, sigma) = (1.05, 0.75)
-(beta, sigma) = (1.95, 1.30)
-```
-
-with
-
-```text
-n = 10
-S = {0,1,2,3}
-R = 0.25
-gamma = 0.65
-observations per path = 64
-```
-
-The initial state is fixed and known. For exact switch counts `S = 0,1,2,3`, the experiment evaluates `1, 9, 36, 84` state paths, respectively. It compares the matched path-conditioned posterior order, the switching-mixture order over paths with at most `S` switches, and the static order based on the initial channel state.
-
-All `2^10` correction patterns are enumerated. GRANDAB error is computed using the exact random-subset finite-population expression; random codebooks are not simulated.
-
-Relevant files:
-
-```text
-experiments/exp_switching_channel.py
-data/switching_channel.csv
-data/switching_channel_pathwise.csv
-data/switching_channel_meta.txt
-```
-
-### Pilot-estimation calibration
-
-The pilot calibration uses five parameter points, sample sizes
-
-```text
-m = {20,25,30,40,50,60,75,100,120,150},
-```
-
-and 64 repetitions per setting. The reported calibration constant is the maximum, over the tested settings, of the upper endpoint of the pointwise 95% Student-t interval for
-
-```text
-sqrt(m) * E ||theta_hat - theta||.
-```
-
-Its numerical value is
-
-```text
-C_est = 3.598833911325183.
-```
-
-This is an empirical calibration quantity, not a simultaneous confidence bound or a finite-sample proof of a uniform root-`m` risk bound.
-
-Relevant files:
-
-```text
-experiments/exp_pilot_mle_calibration.py
-data/pilot_mle_calibration.csv
-data/pilot_mle_calibration_meta.txt
-```
-
-### Refresh-period study
-
-The refresh-period experiment uses
-
-```text
-B = 120
-n = 10
-phi = m/(n q) = 0.5
-q = {4,5,6,8,10,12,15,20,24,30}
-```
-
-for five deterministic drift periods. Every tested `q` divides `B`.
-
-The empirical grid minimizer of the average tracking error is compared with the continuous minimizer
-
-```text
-q* = [C_est / (2 v sqrt(phi n))]^(2/3),
-```
-
-where `v = V_B/B`. The quantity `q*` minimizes the tracking upper bound used in the paper; it is not asserted to minimize the finite-block tracking error or decoding error.
-
-Relevant files:
-
-```text
-experiments/exp_refresh_scaling.py
-data/refresh_scaling.csv
-data/refresh_scaling_summary.csv
-data/refresh_scaling_raw.csv
-```
-
-### Pilot-tracked decoding
-
-The tracked-decoding experiment uses
-
-```text
-B = 120
-n = 10
-T = {120,40}
-q = {4,5,6,8,10,12,15,20,24,30}
-phi = 0.5
-R = 0.25
-gamma = 0.65
-paired repetitions = 64
-```
-
-It compares the matched current-parameter posterior order, the pilot-tracked posterior order, and the static order based on the initial channel parameter. For each sampled observation, all `2^n` correction patterns are enumerated and the exact random-subset GRANDAB error is averaged under the matched correction posterior.
-
-Relevant files:
-
-```text
-experiments/exp_pilot_drift.py
-data/pilot_drift.csv
-data/pilot_drift_meta.txt
-```
-
-### Blocklength robustness
-
-The supplementary robustness calculation uses
-
-```text
-n = {8,10,12}
-```
-
-for representative slow- and fast-drift settings, with eight paired repetitions. It is a finite-block robustness calculation, not an asymptotic convergence study.
-
-Relevant files:
-
-```text
-experiments/exp_blocklength_robustness.py
-data/blocklength_robustness.csv
-```
-
-## Figures
-
-The figures can be regenerated from the archived CSV files without the non-public source implementation:
-
-```bash
-python scripts/generate_figures.py
-```
-
-The combined manuscript figure is `figures/fig_dynamic_evaluation.pdf`. The four panels are also provided separately.
-
-## Analysis
-
-The following scripts operate only on the archived numerical data:
-
-```bash
-python analysis/summarize_switching_paths.py \
-  --input data/switching_channel_pathwise.csv
-
-python analysis/bootstrap_refresh_minimizer.py \
-  --input data/refresh_scaling_raw.csv
-```
-
-## License
-
-The files distributed in this repository are released under the BSD 3-Clause License. See [`LICENSE`](LICENSE).
-
-No rights under third-party patents are granted. See [`PATENT_NOTICE.md`](PATENT_NOTICE.md).
-
-## Citation
-
-```bibtex
-@misc{razeghi2026softgrand,
-  title         = {Soft GRAND under Channel Switching and Drift},
-  author        = {Razeghi, Behrooz},
-  year          = {2026},
-  eprint        = {2608.22685},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.IT}
-}
-```
+# Unnervik_Reporting
+##### Markdown Cheatsheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+This repository will serve to track my activities and my progress throughout the TReSPAsS-ETN (https://cordis.europa.eu/project/id/860813) project and my PhD thesis.
+It will contain everything from notes, tasks, results and discussions.
+
+Latest progress shown below, previous progress reported in the [archived README](archived/README.md).
+
+## [Work Week 49: 05.12 - 09.12 2022](work_dir/reports/22ww49/README.md) # 2 public holidays
+## [Work Week 50: 12.12 - 16.11 2022](work_dir/reports/22ww50/README.md)
+
+<details>
+  <summary>Previous reports</summary>
+
+## [Work Week 48: 28.11 - 02.12 2022](work_dir/reports/22ww48/README.md) # NeurIPS 2022
+## [Work Week 47: 21.11 - 25.11 2022](work_dir/reports/22ww47/README.md)
+## [Work Week 46: 14.11 - 18.11 2022](work_dir/reports/22ww46/README.md)
+## [Work Week 45: 07.11 - 11.11 2022](work_dir/reports/22ww45/README.md)
+## [Work Week 44: 31.10 - 04.11 2022](work_dir/reports/22ww44/README.md)
+## [Work Week 43: 24.10 - 28.10 2022](work_dir/reports/22ww43/README.md)
+## [Work Week 42: 17.10 - 21.10 2022](work_dir/reports/22ww42/README.md) # Trespass Workshop Groningen
+## [Work Week 41: 10.10 - 14.10 2022](work_dir/reports/22ww41/README.md)
+## [Work Week 40: 03.10 - 07.10 2022](work_dir/reports/22ww40/README.md)
+## [Work Week 39: 26.09 - 30.09 2022](work_dir/reports/22ww39/README.md)
+## Work Week 38: 19.09 - 23.09 2022
+## Work Week 37: 12.09 - 16.09 2022
+## Work Week 36: 05.09 - 09.09 2022
+## [Work Week 35: 29.08 - 02.09 2022](work_dir/reports/22ww35/README.md)
+## [Work Week 34: 22.08 - 26.08 2022](work_dir/reports/22ww34/README.md)
+## [Work Week 33: 16.08 - 19.08 2022](work_dir/reports/22ww33/README.md)
+## [Work Week 32: 08.08 - 12.08 2022](work_dir/reports/22ww32/README.md)
+## [Work Week 31: 01.08 - 05.08 2022](work_dir/reports/22ww31/README.md) # Part sick
+## [Work Week 30: 25.07 - 29.07 2022](work_dir/reports/22ww30/README.md)
+## [Work Week 29: 18.07 - 22.07 2022](work_dir/reports/22ww29/README.md)
+## [Work Week 28: 11.07 - 15.07 2022](work_dir/reports/22ww28/README.md)
+## Work Week 27: 04.07 - 08.07 2022 Summer School Madrid
+## Work Week 26: 27.06 - 01.07 2022 Summer School Madrid
+## [Work Week 25: 20.06 - 24.06 2022](work_dir/reports/22ww25/README.md)
+## [Work Week 22-24: 30.05 - 17.06 2022](work_dir/reports/22ww22-24/README.md)
+## [Work Week 15-21: 11.04 - 27.05 2022](work_dir/reports/22ww15-21/README.md)
+## [Work Week 14: 04.03 - 08.04 2022](work_dir/reports/22ww14/README.md)
+## [Work Week 13: 28.03 - 01.04 2022](work_dir/reports/22ww13/README.md)
+## [Work Week 12: 21.03 - 25.03 2022](work_dir/reports/22ww12/README.md)
+## [Work Week 11: 14.03 - 18.03 2022](work_dir/reports/22ww11/README.md)
+## [Work Week 10: 07.03 - 11.03 2022](work_dir/reports/22ww10/README.md)
+## [Work Week 09: 28.02 - 04.03 2022](work_dir/reports/22ww09/README.md)
+## [Work Week 08: 21.02 - 25.02 2022](work_dir/reports/22ww08/README.md)
+## [Work Week 07: 14.02 - 18.02 2022](work_dir/reports/22ww07/README.md)
+## [Work Week 06: 07.01 - 11.02 2022](work_dir/reports/22ww06/README.md)
+## [Work Week 05: 31.01 - 04.02 2022](work_dir/reports/22ww05/README.md)
+## [Work Week 04: 24.01 - 28.01 2022](work_dir/reports/22ww04/README.md)
+## [Work Week 03: 18.01 - 21.01 2022](work_dir/reports/22ww03/README.md)
+## [Work Week 02: 10.01 - 14.01 2022](work_dir/reports/22ww02/README.md)
+## [Work Week 01: 03.01 - 07.01 2022] Holidays
+
+# 2021
+
+## [Work Week 52: 27.12 - 31.12 2021] Holidays
+## [Work Week 51: 20.12 - 23.12 2021](work_dir/reports/21ww51/README.md)
+## [Work Week 50: 13.12 - 17.12 2021](work_dir/reports/21ww50/README.md)
+## [Work Week 49: 06.12 - 10.12 2021](work_dir/reports/21ww49/README.md)
+## [Work Week 48: 29.11 - 03.12 2021](work_dir/reports/21ww48/README.md)
+## [Work Week 47: 22.11 - 26.11 2021](work_dir/reports/21ww47/README.md)
+## [Work Week 46: 15.11 - 19.11 2021](work_dir/reports/21ww46/README.md)
+## [Work Week 45: 08.11 - 12.11 2021](work_dir/reports/21ww45/README.md)
+## [Work Week 44: 01.11 - 05.11 2021](work_dir/reports/21ww44/README.md)
+## [Work Week 43: 25.10 - 29.10 2021](work_dir/reports/21ww43/README.md)
+## [Work Week 42: 18.10 - 22.10 2021](work_dir/reports/21ww42/README.md)
+## [Work Week 41: 11.10 - 15.10 2021](work_dir/reports/21ww41/README.md)
+## [Work Week 40: 04.10 - 08.10 2021](work_dir/reports/21ww40/README.md)
+## [Work Week 39: 27.09 - 01.10 2021](work_dir/reports/21ww39/README.md)
+## [Work Week 38: 20.09 - 24.09 2021](work_dir/reports/21ww38/README.md) 1 day off
+## [Work Week 37: 13.09 - 17.09 2021](work_dir/reports/21ww37/README.md)
+## Work Week 36: 06.09 - 10.09 2021 Holiday
+## [Work Week 35: 30.08 - 03.09 2021](work_dir/reports/21ww35/README.md) 3 days off
+## [Work Week 34: 23.08 - 27.08 2021](work_dir/reports/21ww34/README.md) 3 days off
+## [Work Week 33: 16.08 - 20.08 2021](work_dir/reports/21ww33/README.md)
+## [Work Week 32: 09.08 - 13.08 2021](work_dir/reports/21ww32/README.md)
+## [Work Week 31: 02.08 - 06.08 2021](work_dir/reports/21ww31/README.md)
+## [Work Week 30: 26.07 - 30.07 2021](work_dir/reports/21ww30/README.md)
+## [Work Week 29: 19.07 - 23.07 2021](work_dir/reports/21ww29/README.md)
+## [Work Week 28: 12.07 - 16.07 2021](work_dir/reports/21ww28/README.md)
+## [Work Week 27: 05.07 - 09.07 2021](work_dir/reports/21ww27/README.md)
+## [Work Week 26: 28.06 - 02.07 2021](work_dir/reports/21ww26/README.md)
+## [Work Week 25: 21.06 - 25.06 2021](work_dir/reports/21ww25/README.md)
+## [Work Week 24: 14.06 - 18.06 2021](work_dir/reports/21ww24/README.md)
+## [Work Week 23: 07.06 - 11.06 2021](work_dir/reports/21ww23/README.md)
+## [Work Week 22: 31.05 - 04.06 2021](work_dir/reports/21ww22/README.md)
+## [Work Week 21: 24.05 - 28.05 2021](work_dir/reports/21ww21/README.md)
+## [Work Week 20: 17.05 - 21.05 2021](work_dir/reports/21ww20/README.md)
+
+</details>
