@@ -1,92 +1,175 @@
-# Unnervik_Reporting
-##### Markdown Cheatsheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+# Soft GRAND under Channel Switching and Drift
 
-This repository will serve to track my activities and my progress throughout the TReSPAsS-ETN (https://cordis.europa.eu/project/id/860813) project and my PhD thesis.
-It will contain everything from notes, tasks, results and discussions.
+Numerical results and supporting scripts for:
 
-Latest progress shown below, previous progress reported in the [archived README](archived/README.md).
+**Behrooz Razeghi, “Soft GRAND under Channel Switching and Drift,” *IEEE Communications Letters*, 2026.** 
+[IEEE Xplore](https://ieeexplore.ieee.org/document/11771020) · [DOI](https://doi.org/10.1109/LCOMM.2026.3749996) · [arXiv](https://arxiv.org/abs/2608.22685)
 
-## [Work Week 49: 05.12 - 09.12 2022](work_dir/reports/22ww49/README.md) # 2 public holidays
-## [Work Week 50: 12.12 - 16.11 2022](work_dir/reports/22ww50/README.md)
+This repository contains the archived numerical results, experiment specifications, data-analysis scripts, and figure-generation code. The GRAND-based decoding modules used to produce the numerical data are **not distributed**; consequently, the experiments cannot be rerun from this repository alone. The archived results can be analyzed and the manuscript figures regenerated without those modules.
 
-<details>
-  <summary>Previous reports</summary>
+## Research scope
 
-## [Work Week 48: 28.11 - 02.12 2022](work_dir/reports/22ww48/README.md) # NeurIPS 2022
-## [Work Week 47: 21.11 - 25.11 2022](work_dir/reports/22ww47/README.md)
-## [Work Week 46: 14.11 - 18.11 2022](work_dir/reports/22ww46/README.md)
-## [Work Week 45: 07.11 - 11.11 2022](work_dir/reports/22ww45/README.md)
-## [Work Week 44: 31.10 - 04.11 2022](work_dir/reports/22ww44/README.md)
-## [Work Week 43: 24.10 - 28.10 2022](work_dir/reports/22ww43/README.md)
-## [Work Week 42: 17.10 - 21.10 2022](work_dir/reports/22ww42/README.md) # Trespass Workshop Groningen
-## [Work Week 41: 10.10 - 14.10 2022](work_dir/reports/22ww41/README.md)
-## [Work Week 40: 03.10 - 07.10 2022](work_dir/reports/22ww40/README.md)
-## [Work Week 39: 26.09 - 30.09 2022](work_dir/reports/22ww39/README.md)
-## Work Week 38: 19.09 - 23.09 2022
-## Work Week 37: 12.09 - 16.09 2022
-## Work Week 36: 05.09 - 09.09 2022
-## [Work Week 35: 29.08 - 02.09 2022](work_dir/reports/22ww35/README.md)
-## [Work Week 34: 22.08 - 26.08 2022](work_dir/reports/22ww34/README.md)
-## [Work Week 33: 16.08 - 19.08 2022](work_dir/reports/22ww33/README.md)
-## [Work Week 32: 08.08 - 12.08 2022](work_dir/reports/22ww32/README.md)
-## [Work Week 31: 01.08 - 05.08 2022](work_dir/reports/22ww31/README.md) # Part sick
-## [Work Week 30: 25.07 - 29.07 2022](work_dir/reports/22ww30/README.md)
-## [Work Week 29: 18.07 - 22.07 2022](work_dir/reports/22ww29/README.md)
-## [Work Week 28: 11.07 - 15.07 2022](work_dir/reports/22ww28/README.md)
-## Work Week 27: 04.07 - 08.07 2022 Summer School Madrid
-## Work Week 26: 27.06 - 01.07 2022 Summer School Madrid
-## [Work Week 25: 20.06 - 24.06 2022](work_dir/reports/22ww25/README.md)
-## [Work Week 22-24: 30.05 - 17.06 2022](work_dir/reports/22ww22-24/README.md)
-## [Work Week 15-21: 11.04 - 27.05 2022](work_dir/reports/22ww15-21/README.md)
-## [Work Week 14: 04.03 - 08.04 2022](work_dir/reports/22ww14/README.md)
-## [Work Week 13: 28.03 - 01.04 2022](work_dir/reports/22ww13/README.md)
-## [Work Week 12: 21.03 - 25.03 2022](work_dir/reports/22ww12/README.md)
-## [Work Week 11: 14.03 - 18.03 2022](work_dir/reports/22ww11/README.md)
-## [Work Week 10: 07.03 - 11.03 2022](work_dir/reports/22ww10/README.md)
-## [Work Week 09: 28.02 - 04.03 2022](work_dir/reports/22ww09/README.md)
-## [Work Week 08: 21.02 - 25.02 2022](work_dir/reports/22ww08/README.md)
-## [Work Week 07: 14.02 - 18.02 2022](work_dir/reports/22ww07/README.md)
-## [Work Week 06: 07.01 - 11.02 2022](work_dir/reports/22ww06/README.md)
-## [Work Week 05: 31.01 - 04.02 2022](work_dir/reports/22ww05/README.md)
-## [Work Week 04: 24.01 - 28.01 2022](work_dir/reports/22ww04/README.md)
-## [Work Week 03: 18.01 - 21.01 2022](work_dir/reports/22ww03/README.md)
-## [Work Week 02: 10.01 - 14.01 2022](work_dir/reports/22ww02/README.md)
-## [Work Week 01: 03.01 - 07.01 2022] Holidays
+Soft GRAND orders candidate correction patterns according to a posterior distribution. Channel switching within a block, or parameter drift between blocks, can make the ordering distribution differ from the posterior associated with the channel that generated the observation.
 
-# 2021
+The paper examines this mismatch in three parts:
 
-## [Work Week 52: 27.12 - 31.12 2021] Holidays
-## [Work Week 51: 20.12 - 23.12 2021](work_dir/reports/21ww51/README.md)
-## [Work Week 50: 13.12 - 17.12 2021](work_dir/reports/21ww50/README.md)
-## [Work Week 49: 06.12 - 10.12 2021](work_dir/reports/21ww49/README.md)
-## [Work Week 48: 29.11 - 03.12 2021](work_dir/reports/21ww48/README.md)
-## [Work Week 47: 22.11 - 26.11 2021](work_dir/reports/21ww47/README.md)
-## [Work Week 46: 15.11 - 19.11 2021](work_dir/reports/21ww46/README.md)
-## [Work Week 45: 08.11 - 12.11 2021](work_dir/reports/21ww45/README.md)
-## [Work Week 44: 01.11 - 05.11 2021](work_dir/reports/21ww44/README.md)
-## [Work Week 43: 25.10 - 29.10 2021](work_dir/reports/21ww43/README.md)
-## [Work Week 42: 18.10 - 22.10 2021](work_dir/reports/21ww42/README.md)
-## [Work Week 41: 11.10 - 15.10 2021](work_dir/reports/21ww41/README.md)
-## [Work Week 40: 04.10 - 08.10 2021](work_dir/reports/21ww40/README.md)
-## [Work Week 39: 27.09 - 01.10 2021](work_dir/reports/21ww39/README.md)
-## [Work Week 38: 20.09 - 24.09 2021](work_dir/reports/21ww38/README.md) 1 day off
-## [Work Week 37: 13.09 - 17.09 2021](work_dir/reports/21ww37/README.md)
-## Work Week 36: 06.09 - 10.09 2021 Holiday
-## [Work Week 35: 30.08 - 03.09 2021](work_dir/reports/21ww35/README.md) 3 days off
-## [Work Week 34: 23.08 - 27.08 2021](work_dir/reports/21ww34/README.md) 3 days off
-## [Work Week 33: 16.08 - 20.08 2021](work_dir/reports/21ww33/README.md)
-## [Work Week 32: 09.08 - 13.08 2021](work_dir/reports/21ww32/README.md)
-## [Work Week 31: 02.08 - 06.08 2021](work_dir/reports/21ww31/README.md)
-## [Work Week 30: 26.07 - 30.07 2021](work_dir/reports/21ww30/README.md)
-## [Work Week 29: 19.07 - 23.07 2021](work_dir/reports/21ww29/README.md)
-## [Work Week 28: 12.07 - 16.07 2021](work_dir/reports/21ww28/README.md)
-## [Work Week 27: 05.07 - 09.07 2021](work_dir/reports/21ww27/README.md)
-## [Work Week 26: 28.06 - 02.07 2021](work_dir/reports/21ww26/README.md)
-## [Work Week 25: 21.06 - 25.06 2021](work_dir/reports/21ww25/README.md)
-## [Work Week 24: 14.06 - 18.06 2021](work_dir/reports/21ww24/README.md)
-## [Work Week 23: 07.06 - 11.06 2021](work_dir/reports/21ww23/README.md)
-## [Work Week 22: 31.05 - 04.06 2021](work_dir/reports/21ww22/README.md)
-## [Work Week 21: 24.05 - 28.05 2021](work_dir/reports/21ww21/README.md)
-## [Work Week 20: 17.05 - 21.05 2021](work_dir/reports/21ww20/README.md)
+1. **Finite-block reliability.** For matched posterior $p$, query-ordering posterior $Q$, and true correction $E$ given observation $r$, the query rank satisfies
 
-</details>
+   $$
+   \log_2 G_Q(E\mid r)\leq -\log_2 p(E\mid r)
+   +\left[\log_2\frac{p(E\mid r)}{Q(E\mid r)}\right]^+.
+   $$
+
+   The rank bound is combined with finite-population collision probabilities to analyze GRAND with abandonment (GRANDAB) for a random-subset code ensemble.
+
+2. **Within-block switching.** A uniform mixture of the posteriors indexed by admissible channel-state paths has log-posterior mismatch at most the logarithm of the path-class size. For a fixed finite collection of memoryless channels, the paper establishes uniform reliability below the minimum constituent capacity when uniform input is capacity-achieving for every state and the maximum switch count satisfies $S_n\log n=o(n)$.
+
+3. **Block-to-block drift.** With periodic estimation from $m$ pilots every $q$ data blocks, the average parameter-tracking error is bounded by $\varepsilon_m+qV_B/B$, where $\varepsilon_m$ bounds the expected estimation error and $V_B$ is total parameter variation. Under a root-$m$ estimation-risk bound, this gives a continuous minimizer of the *tracking upper bound*, not of the actual finite-block tracking or decoding error.
+
+The numerical study uses BPSK transmission with independent generalized-Gaussian noise samples, whose parameters may switch within a block or drift between blocks. The estimation parameter is $\vartheta=(\beta,\eta)$, with $\eta=\ln\sigma$.
+
+## Repository contents
+
+| Path | Contents |
+| --- | --- |
+| `data/` | Archived numerical results and experiment metadata |
+| `experiments/` | Experiment specifications and scripts used to generate the archived data; require undistributed `src` modules |
+| `analysis/` | Analyses that operate on the archived CSV files |
+| `scripts/generate_figures.py` | Regenerates the four figure panels and combined figure from archived data |
+| `figures/` | Manuscript figures |
+| `src/` | Source-code availability notice |
+| `requirements.txt` | Pinned dependencies for the publicly executable scripts |
+| `PATENT_NOTICE.md` | Scope of the source-code and patent notices |
+
+## Numerical methodology
+
+The main decoding experiments use blocklength $n=10$, nominal rate parameter $R=0.25$, and abandonment exponent $\gamma=0.65$. With the definitions used in the paper, these give an ambient space of $2^{10}=1024$ words, random-subset codebook size $M=\lfloor 2^{nR}\rfloor=5$, and query budget $\tau=\lfloor 2^{n\gamma}\rfloor=90$.
+
+All $2^n$ candidate corrections are enumerated for each sampled channel observation. Conditional on that observation, the GRANDAB error is calculated by averaging the **exact random-subset collision expression** over the matched correction posterior. Random codebooks are not simulated. The remaining averages over channel observations and, where applicable, pilot estimates are estimated by Monte Carlo. These quantities are ensemble-average error probabilities, **not measured block-error rates for a specified code**.
+
+### 1. Within-block channel switching
+
+The two channel states have generalized-Gaussian parameters
+
+| State | Shape $\beta$ | Scale $\sigma$ |
+| --- | ---: | ---: |
+| 1 | 1.05 | 0.75 |
+| 2 | 1.95 | 1.30 |
+
+The initial state is known and fixed. For each exact number of switches $S\in\{0,1,2,3\}$, the experiment evaluates every state path starting in that state: respectively **1, 9, 36, and 84 paths**. Each path is evaluated using 64 sampled channel observations.
+
+Three posterior orderings are compared: the matched path-conditioned ordering (oracle), the uniform mixture over paths with **at most** $S$ switches, and a static ordering that retains the initial channel state. The plotted quantity is the excess ensemble-average GRANDAB error relative to the oracle, summarized across paths with exactly $S$ switches.
+
+For $S=3$, the mean estimated excess errors across the 84 paths are $2.586\times10^{-3}$ (switching mixture) and $4.938\times10^{-3}$ (static ordering). The mixture has a smaller estimated excess error on 81 of those paths. These are finite-block numerical results for the specified channel states, not a general performance guarantee.
+
+Files: `experiments/exp_switching_channel.py`, `data/switching_channel.csv`, `data/switching_channel_pathwise.csv`, and `data/switching_channel_meta.txt`.
+
+### 2. Pilot-estimator calibration
+
+The constrained maximum-likelihood estimator is evaluated at five parameter points and ten pilot sample sizes,
+
+$$
+m\in\{20,25,30,40,50,60,75,100,120,150\},
+$$
+
+with 64 independent repetitions per setting. The reported calibration value,
+
+$$
+\widehat C_{\mathrm{cal}}=3.598833911325183,
+$$
+
+is the maximum of the upper endpoints of 50 **pointwise** 95% Student-$t$ intervals for $\mathbb{E}[\sqrt m\,\|\widehat\vartheta_m-\vartheta\|]$.
+
+This finite-grid quantity is used as a numerical surrogate in the refresh-period comparison. It is **not** a simultaneous confidence bound and does not establish the uniform, eventual root-$m$ estimation-risk assumption used in the theoretical result.
+
+Files: `experiments/exp_pilot_mle_calibration.py`, `data/pilot_mle_calibration.csv`, and `data/pilot_mle_calibration_meta.txt`.
+
+### 3. Refresh period and parameter tracking
+
+The tracking study uses $B=120$ data blocks, $n=10$, and deterministic parameter paths with periods $T\in\{120,80,60,40,30\}$. The tested refresh intervals are
+
+$$
+q\in\{4,5,6,8,10,12,15,20,24,30\}.
+$$
+
+Every $q$ divides $B$. The pilot-to-data ratio is fixed at $\phi=m/(nq)=0.5$, so $m=5q$ pilots are collected at each refresh, corresponding to one pilot symbol per two data symbols. Each setting uses 64 repetitions. The empirical grid minimizer is assessed with 5,000 bootstrap resamples.
+
+Under the root-$m$ estimation-risk assumption, the continuous tracking-bound surrogate and its minimizer, for $v=V_B/B>0$, are
+
+$$
+f(q)=\frac{C_{\mathrm{est}}}{\sqrt{\phi nq}}+qv,
+\qquad
+q^\star=\left(\frac{C_{\mathrm{est}}}{2v\sqrt{\phi n}}\right)^{2/3}.
+$$
+
+The numerical comparison substitutes $\widehat C_{\mathrm{cal}}$ for $C_{\mathrm{est}}$. The resulting $q^\star$ minimizes this **calibrated surrogate**, whereas the empirical grid minimizer minimizes the sampled mean tracking error over the tested values of $q$. The two need not coincide.
+
+Files: `experiments/exp_refresh_scaling.py`, `data/refresh_scaling.csv`, `data/refresh_scaling_summary.csv`, and `data/refresh_scaling_raw.csv`.
+
+### 4. Pilot-tracked decoding
+
+For the drift periods $T\in\{120,40\}$, the experiment compares the matched current-parameter ordering, the periodically updated pilot-based ordering, and a static ordering based on the initial parameter. It uses the same $B$, $n$, $q$ grid, $\phi$, $R$, and $\gamma$ as above, with 64 paired repetitions. Within each repetition, the policies are evaluated on the same sampled data observations; pilot samples differ across refresh intervals.
+
+The reported decoding quantity is excess ensemble-average GRANDAB error relative to matched ordering. The tracking-bound minimizer is shown for comparison, but is **not** claimed to minimize decoding error. The manuscript reports empirical decoding-error minima at $q=20$ for $T=120$ and $q=8$ for $T=40$ on the tested grid.
+
+Files: `experiments/exp_pilot_drift.py`, `data/pilot_drift.csv`, and `data/pilot_drift_meta.txt`.
+
+### 5. Blocklength check
+
+A supplementary calculation considers $n\in\{8,10,12\}$ for two selected period–refresh pairs, $(T,q)=(120,20)$ and $(40,8)$, using eight repetitions. This is a small finite-block comparison and does not constitute an empirical asymptotic study.
+
+Files: `experiments/exp_blocklength_robustness.py` and `data/blocklength_robustness.csv`.
+
+## Reproduce figures and analyze archived results
+
+The public scripts require **Python 3.11–3.14**, consistent with the pinned NumPy and SciPy versions in `requirements.txt`. From a local checkout:
+
+```bash
+git clone https://github.com/BehroozRazeghi/soft-grand-switching-drift.git
+cd soft-grand-switching-drift
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Regenerate the combined manuscript figure and four individual panels:
+
+```bash
+python scripts/generate_figures.py
+```
+
+The script writes PDF and PNG files to `figures/`, including `figures/fig_dynamic_evaluation.pdf` and the corresponding standalone panels. It reads the archived CSV files and does not require the undistributed decoding modules.
+
+Two additional analyses can be run directly:
+
+```bash
+python analysis/summarize_switching_paths.py \
+  --input data/switching_channel_pathwise.csv
+
+python analysis/bootstrap_refresh_minimizer.py \
+  --input data/refresh_scaling_raw.csv
+```
+
+These commands write `data/switching_path_summary_extended.csv` and `data/refresh_minimizer_bootstrap.csv`, respectively. The latter estimates the bootstrap selection frequency of each tested refresh interval; it does not produce new decoding simulations.
+
+**Re-running the original experiments:** Scripts under `experiments/` import modules from `src/` that are not present in this release. Installing `requirements.txt` does not make those scripts executable. To inspect the experimental settings and the stored outputs, use the scripts and metadata files listed above.
+
+## Source code and licensing
+
+The GRAND-based decoding implementation is withheld because the applicability of third-party patent rights has not been resolved. The implementation was independently developed and does not incorporate code from GRAND-MATLAB, SOGRAND-C, or other GRAND implementations. See [`PATENT_NOTICE.md`](PATENT_NOTICE.md) for the notice associated with this release.
+
+The distributed files are licensed under the [BSD 3-Clause License](LICENSE). That copyright license does not confer rights under third-party patents.
+
+## Citation
+
+Please cite the journal article when referring to the research:
+
+```bibtex
+@ARTICLE{11771020,
+  author  = {Razeghi, Behrooz},
+  journal = {IEEE Communications Letters},
+  title   = {Soft GRAND under Channel Switching and Drift},
+  year    = {2026},
+  doi     = {10.1109/LCOMM.2026.3749996}
+}
+```
