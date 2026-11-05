@@ -11,20 +11,26 @@ This repository contains the archived numerical results, experiment specificatio
 
 Soft GRAND orders candidate correction patterns according to a posterior distribution. Channel switching within a block, or parameter drift between blocks, can make the ordering distribution differ from the posterior associated with the channel that generated the observation.
 
-The paper examines this mismatch in three parts:
+The paper examines three aspects of this mismatch.
 
-1. **Finite-block reliability.** For matched posterior $p$, query-ordering posterior $Q$, and true correction $E$ given observation $r$, the query rank satisfies
+### Finite-block reliability
 
-   $$
-   \log_2 G_Q(E\mid r)\leq -\log_2 p(E\mid r)
-   +\left[\log_2\frac{p(E\mid r)}{Q(E\mid r)}\right]^+.
-   $$
+For matched posterior $p$, query-ordering posterior $Q$, and true correction $E$ given observation $r$, the query rank satisfies
 
-   The rank bound is combined with finite-population collision probabilities to analyze GRAND with abandonment (GRANDAB) for a random-subset code ensemble.
+$$
+\log_2 G_Q(E\mid r)\leq -\log_2 p(E\mid r)
++\left[\log_2\frac{p(E\mid r)}{Q(E\mid r)}\right]^+.
+$$
 
-2. **Within-block switching.** A uniform mixture of the posteriors indexed by admissible channel-state paths has log-posterior mismatch at most the logarithm of the path-class size. For a fixed finite collection of memoryless channels, the paper establishes uniform reliability below the minimum constituent capacity when uniform input is capacity-achieving for every state and the maximum switch count satisfies $S_n\log n=o(n)$.
+The rank bound is combined with finite-population collision probabilities to analyze GRAND with abandonment (GRANDAB) for a random-subset code ensemble.
 
-3. **Block-to-block drift.** With periodic estimation from $m$ pilots every $q$ data blocks, the average parameter-tracking error is bounded by $\varepsilon_m+qV_B/B$, where $\varepsilon_m$ bounds the expected estimation error and $V_B$ is total parameter variation. Under a root-$m$ estimation-risk bound, this gives a continuous minimizer of the *tracking upper bound*, not of the actual finite-block tracking or decoding error.
+### Within-block switching
+
+A uniform mixture of the posteriors indexed by admissible channel-state paths has log-posterior mismatch at most the logarithm of the path-class size. For a fixed finite collection of memoryless channels, the paper establishes uniform reliability below the minimum constituent capacity when uniform input is capacity-achieving for every state and the maximum switch count satisfies $S_n\log n=o(n)$.
+
+### Block-to-block drift
+
+With periodic estimation from $m$ pilots every $q$ data blocks, the average parameter-tracking error is bounded by $\varepsilon_m+qV_B/B$, where $\varepsilon_m$ bounds the expected estimation error and $V_B$ is total parameter variation. Under an estimation-risk bound of order $m^{-1/2}$, this gives a continuous minimizer of the *tracking upper bound*, not of the actual finite-block tracking or decoding error.
 
 The numerical study uses BPSK transmission with independent generalized-Gaussian noise samples, whose parameters may switch within a block or drift between blocks. The estimation parameter is $\vartheta=(\beta,\eta)$, with $\eta=\ln\sigma$.
 
@@ -80,7 +86,7 @@ $$
 
 is the maximum of the upper endpoints of 50 **pointwise** 95% Student-$t$ intervals for $\mathbb{E}[\sqrt m\,\|\widehat\vartheta_m-\vartheta\|]$.
 
-This finite-grid quantity is used as a numerical surrogate in the refresh-period comparison. It is **not** a simultaneous confidence bound and does not establish the uniform, eventual root-$m$ estimation-risk assumption used in the theoretical result.
+This finite-grid quantity is used as a numerical surrogate in the refresh-period comparison. It is **not** a simultaneous confidence bound and does not establish the uniform, eventual estimation-risk bound of order $m^{-1/2}$ assumed in the theoretical result.
 
 Files: `experiments/exp_pilot_mle_calibration.py`, `data/pilot_mle_calibration.csv`, and `data/pilot_mle_calibration_meta.txt`.
 
@@ -94,7 +100,7 @@ $$
 
 Every $q$ divides $B$. The pilot-to-data ratio is fixed at $\phi=m/(nq)=0.5$, so $m=5q$ pilots are collected at each refresh, corresponding to one pilot symbol per two data symbols. Each setting uses 64 repetitions. The empirical grid minimizer is assessed with 5,000 bootstrap resamples.
 
-Under the root-$m$ estimation-risk assumption, the continuous tracking-bound surrogate and its minimizer, for $v=V_B/B>0$, are
+Under the assumed estimation-risk bound of order $m^{-1/2}$, the continuous tracking-bound surrogate and its minimizer, for $v=V_B/B>0$, are
 
 $$
 f(q)=\frac{C_{\mathrm{est}}}{\sqrt{\phi nq}}+qv,
