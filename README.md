@@ -5,7 +5,7 @@ Numerical results and supporting scripts for:
 **Behrooz Razeghi, “Soft GRAND under Channel Switching and Drift,” *IEEE Communications Letters*, 2026.** 
 [IEEE Xplore](https://ieeexplore.ieee.org/document/11771020) · [DOI](https://doi.org/10.1109/LCOMM.2026.3749996) · [arXiv](https://arxiv.org/abs/2608.22685)
 
-This repository contains the archived numerical results, experiment specifications, data-analysis scripts, and figure-generation code. The GRAND-based decoding modules used to produce the numerical data are **not distributed**; consequently, the experiments cannot be rerun from this repository alone. The archived results can be analyzed and the manuscript figures regenerated without those modules.
+This repository contains the archived numerical results, experiment specifications, data-analysis scripts, and figure-generation code. The GRAND-based decoding modules used to produce the numerical data are **not distributed** because the applicability of third-party patent rights remains unresolved. Consequently, the original experiments cannot be rerun from this repository alone. The archived results can, however, be analyzed and the manuscript figures regenerated using the public scripts.
 
 ## Research scope
 
@@ -15,10 +15,10 @@ The paper examines this mismatch in three parts:
 
 1. **Finite-block reliability.** For matched posterior $p$, query-ordering posterior $Q$, and true correction $E$ given observation $r$, the query rank satisfies
 
-   $$
+    ```math
    \log_2 G_Q(E\mid r)\leq -\log_2 p(E\mid r)
    +\left[\log_2\frac{p(E\mid r)}{Q(E\mid r)}\right]^+.
-   $$
+   ```
 
    The rank bound is combined with finite-population collision probabilities to analyze GRAND with abandonment (GRANDAB) for a random-subset code ensemble.
 
